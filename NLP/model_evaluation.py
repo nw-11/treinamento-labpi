@@ -54,6 +54,6 @@ def model_evaluation(tipo_representacao='tfidf'):
             print(f'   -> p-valor: {p:.5f} | Veredito: Estatisticamente Equivalentes (empate)')          
 
 
-#model_evaluation('tfidf') #testar
+model_evaluation('fasttext') #testar
 
 # Concluimos que na nossa base de dados, o melhor modelo é o SVM usando tfidf

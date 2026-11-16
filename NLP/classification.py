@@ -9,15 +9,15 @@ from sklearn.tree import DecisionTreeClassifier
 tipo_representacao = 'tfidf'  #podemos trocar a representacao pra testar
 
 X, modelo_repr, df_clean = get_embeddings(tipo_representacao)
-y = df_clean['label']
+y = df_clean['label']               #a coluna que guarda as "classificacoes corretas"
 
-x_train, x_test, y_train, y_test = train_test_split(
+x_train, x_test, y_train, y_test = train_test_split( #X->nossa matriz  ; y->os labels que queremos que os modelos aprendam a prever ; test_size = 0.2 (20%¨pra teste e 80 pra treinamento)
     X, y, test_size=0.2, random_state=42, stratify=y
 )
 
 #modelo knn
 knn = KNeighborsClassifier()
-knn.fit(x_train, y_train)   #.fit -> treina o modelo com os textos e o label
+knn.fit(x_train, y_train)   #.fit -> treina o modelo com a matriz e o label
 pred_knn = knn.predict(x_test) #.predict -> faz o teste
 acc_knn = accuracy_score(y_test, pred_knn) #recebe as notas com base no y_test(accuracy e macrof1)
 f1_knn = f1_score(y_test, pred_knn, average='macro')

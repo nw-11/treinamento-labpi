@@ -9,7 +9,7 @@ def get_embeddings(tipo):
         vetorizador = TfidfVectorizer()
         # Converte o texto processado na matriz densa (2D array)
         X = vetorizador.fit_transform(df_clean['text_clean']).toarray()
-        return X, vetorizador, df_clean
+        return X, vetorizador, df_clean ##retorna o X, nosso vetorizador tfidf treinado, e o data_frame pre processado
     
     tokenized_sentences = df_clean['text_clean']
     if tipo == 'w2v':
@@ -34,4 +34,6 @@ def get_embeddings(tipo):
         #criar a matriz final
     X = np.array([get_mean_vector(tokens) for tokens in tokenized_sentences])
 
-    return X, model, df_clean #retorna o X, nosso modelo usado,
+    return X, model, df_clean #retorna o X, nosso modelo(fasttext ou w2v) treinado, e o data_frame pre processado
+
+

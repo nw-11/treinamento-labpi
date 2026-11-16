@@ -67,4 +67,4 @@ def hiperparam(tipo_representacao='tfidf'):
         print(f'\nRelatório para {nome}:')                      
         print(classification_report(y_test, predicoes, digits=4))
 
-#hiperparam() #teste
+hiperparam('w2v') #teste
